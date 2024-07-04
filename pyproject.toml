@@ -5,10 +5,11 @@ description = "Della Terra store"
 authors = ["Lucas Montezuma"]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10.12"
 pytest = "^8.2.2"
 factory-boy = "^3.3.0"
 django = "^5.0.6"
+psycopg2 = "^2.9.0" 
 
 [build-system]
 requires = ["poetry-core"]
