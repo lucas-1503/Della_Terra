@@ -2,7 +2,7 @@ name: Django CI
 
 on:
   push:
-    branches: [ "github-actions ]
+    branches: [ "github-actions" ]
   pull_request:
     branches: [ "github-actions" ]
 
@@ -15,6 +15,24 @@ jobs:
       matrix:
         python-version: [3.7, 3.8, 3.9]
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: django_db
+          POSTGRES_USER: lucas
+          POSTGRES_PASSWORD: Lucas55418794*
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    env:
+      DATABASE_URL: postgres://django:django@localhost:5432/django_db
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
@@ -25,6 +43,7 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Set up Database
+      run: python3 manage.py migrate
     - name: Run Tests
-      run: |
-        python3 manage.py test
+      run: python3 manage.py test
