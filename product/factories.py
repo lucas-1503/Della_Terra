@@ -13,7 +13,7 @@ class CategoryFactory(factory.django.DjangoModelFactory):
         model = Category
         
 class ProductFactory(factory.django.DjangoModelFactory):
-    price = factory.Faker('pystr')
+    price = factory.Faker('random_int', min=10, max=1000)
     category = factory.LazyAttribute(CategoryFactory)
     title = factory.Faker("pystr")
     
