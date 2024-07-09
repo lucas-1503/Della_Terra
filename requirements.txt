@@ -1,5 +1,4 @@
 ﻿beautifulsoup4==4.12.3
-django==1.10.5
 blinker==1.6.3
 certifi==2024.6.2
 charset-normalizer==3.3.2
