@@ -53,6 +53,7 @@ jobs:
         pip install djangorestframework
         pip install django-extensions
         pip install django-debug-toolbar
+        pip install psycopg2
         pip install -r requirements.txt
     - name: Set up Database
       run: |
