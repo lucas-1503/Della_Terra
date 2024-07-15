@@ -32,7 +32,7 @@ smmap==5.0.1
 soupsieve==2.4.1
 sqlparse==0.4.4
 tomli==2.0.1
-typing_extensions==4.12.2
+typing_extensions==4.7.1
 urllib3==2.2.2
 waitress==3.0.0
 Werkzeug==3.0.3
